@@ -1,4 +1,7 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
+using Core.Dtos;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,17 +12,21 @@ namespace Api.Controllers
     public class SurveyController : ControllerBase
     {
         private readonly ISurveyRepository _surveryRepo;
+        private readonly IMapper _mapper;
 
-        public SurveyController(ISurveyRepository surveryRepo)
+        public SurveyController(ISurveyRepository surveryRepo, IMapper mapper)
         {
             _surveryRepo = surveryRepo;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetSurveys()
         {
             var surveys = await _surveryRepo.GetSurveys();
-            return Ok(surveys);
+            var surveysDto = _mapper.Map<List<SurveyDto>>(surveys);
+
+            return Ok(surveysDto);
         }
 
         [HttpGet("{id}")]
@@ -31,7 +38,8 @@ namespace Api.Controllers
                 return BadRequest();
             }
 
-            return Ok(survey);
+            var surveyDto = _mapper.Map<SurveyDto>(survey);
+            return Ok(surveyDto);
         }
     }
 }
