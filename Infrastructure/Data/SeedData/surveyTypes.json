@@ -1,10 +1,10 @@
 [
     {
-        "id": 1,
-        "type": "Single"
+        "Id": 1,
+        "Type": "Single"
     },
     {
-        "id": 2,
-        "type": "Multiple"
+        "Id": 2,
+        "Type": "Multiple"
     }
 ]

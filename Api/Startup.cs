@@ -21,7 +21,7 @@ namespace Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<SurveyContext>(opt => opt.UseSqlite(_config.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("Api")));
+            services.AddDbContext<SurveyContext>(opt => opt.UseSqlite(_config.GetConnectionString("DefaultConnection")));
             services.AddScoped<ISurveyRepository, SurveyRepository>();
         }
 

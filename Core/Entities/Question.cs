@@ -6,7 +6,7 @@ namespace Core.Entities
     public class Question : BaseEntity
     {
         public string CreatedBy { get; set; }
-        public DateTime CreatedDateTime { get; set; }
+        public string CreatedDateTime { get; set; }
         public string Title { get; set; }
         public string SubTitle { get; set; }
         public SurveyType SurveyType { get; set; }
