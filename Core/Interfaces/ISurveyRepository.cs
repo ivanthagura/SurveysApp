@@ -6,6 +6,7 @@ namespace Core.Interfaces
 {
     public interface ISurveyRepository
     {
-        Task<List<Survey>> GetSurveysAsync();
+        Task<List<Survey>> GetSurveys();
+        Task<Survey> GetSurvey(int id);
     }
 }
