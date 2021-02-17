@@ -1,0 +1,32 @@
+[
+    {
+      "Id": 1,
+      "Text": "One",
+      "QuestionId": 1
+    },
+    {
+      "Id": 2,
+      "Text": "Two",
+      "QuestionId": 1
+    },
+    {
+      "Id": 3,
+      "Text": "Three thousand three hundred eighty-seven",
+      "QuestionId": 1
+    },
+    {
+      "Id": 4,
+      "Text": "10",
+      "QuestionId": 2
+    },
+    {
+      "Id": 5,
+      "Text": "20",
+      "QuestionId": 2
+    },
+    {
+      "Id": 6,
+      "Text": "30",
+      "QuestionId": 2
+    }
+  ]

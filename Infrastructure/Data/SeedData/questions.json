@@ -1,0 +1,22 @@
+[
+    {
+        "id" : 1 ,
+        "surveyId": 1,
+        "createdBy" : "Elisabeth Winters" ,
+        "createdDateTime" : "Fri, 22 May 2020 01:11:00 GMT" ,
+        "title" : "How many astronauts landed on the moon?" ,
+        "subTitle" : "" ,
+        "surveyTypeId": 1,
+        "questionTypeId" : 1 
+    },
+    {
+        "id" : 2 ,
+        "surveyId": 1,
+        "createdBy" : "Maryam O'Ryan" ,
+        "createdDateTime" : "Tue, 26 May 2020 05:57:52 GMT" ,
+        "title" : "How many devs does it take to change a lightbulb?" ,
+        "subTitle" : "This is not a trick question." ,
+        "surveyTypeId": 2,
+        "questionTypeId" : 2
+    }
+]
