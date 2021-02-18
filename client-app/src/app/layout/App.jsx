@@ -1,11 +1,15 @@
 import React from 'react';
+import { Container } from 'semantic-ui-react';
+import NavBar from '../../features/nav/NavBar';
+import SurveyDashboard from '../../features/surveys/surveyDashboard/SurveyDashboard';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <h1>Compass</h1>
-    </div>
+    <>
+      <NavBar/>
+      <Container className='main'>
+        <SurveyDashboard />
+      </Container>
+    </>
   );
 }
-
-export default App;

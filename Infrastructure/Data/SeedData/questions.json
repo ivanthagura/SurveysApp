@@ -14,6 +14,106 @@
         "SurveyId": 1,
         "CreatedBy" : "Maryam O'Ryan" ,
         "CreatedDateTime" : "2/2/2021 11:56:18 AM" ,
+        "Title" : "How many minutes to an hour" ,
+        "SubTitle" : "This is not a trick question." ,
+        "SurveyTypeId": 2,
+        "QuestionTypeId" : 2
+    },
+    {
+        "Id" : 3 ,
+        "SurveyId": 1,
+        "CreatedBy" : "Elisabeth Winters" ,
+        "CreatedDateTime" : "2/2/2021 11:56:18 AM" ,
+        "Title" : "Favourite food" ,
+        "SubTitle" : "" ,
+        "SurveyTypeId": 1,
+        "QuestionTypeId" : 1 
+    },
+    {
+        "Id" : 4 ,
+        "SurveyId": 1,
+        "CreatedBy" : "Maryam O'Ryan" ,
+        "CreatedDateTime" : "2/2/2021 11:56:18 AM" ,
+        "Title" : "How many devs does it take to change a lightbulb?" ,
+        "SubTitle" : "This is not a trick question." ,
+        "SurveyTypeId": 2,
+        "QuestionTypeId" : 2
+    },
+    {
+        "Id" : 5 ,
+        "SurveyId": 2,
+        "CreatedBy" : "Elisabeth Winters" ,
+        "CreatedDateTime" : "2/2/2021 11:56:18 AM" ,
+        "Title" : "How many astronauts landed on the moon?" ,
+        "SubTitle" : "" ,
+        "SurveyTypeId": 1,
+        "QuestionTypeId" : 1 
+    },
+    {
+        "Id" : 6 ,
+        "SurveyId": 2,
+        "CreatedBy" : "Maryam O'Ryan" ,
+        "CreatedDateTime" : "2/2/2021 11:56:18 AM" ,
+        "Title" : "How many minutes to an hour" ,
+        "SubTitle" : "This is not a trick question." ,
+        "SurveyTypeId": 2,
+        "QuestionTypeId" : 2
+    },
+    {
+        "Id" : 7 ,
+        "SurveyId": 2,
+        "CreatedBy" : "Elisabeth Winters" ,
+        "CreatedDateTime" : "2/2/2021 11:56:18 AM" ,
+        "Title" : "Favourite food" ,
+        "SubTitle" : "" ,
+        "SurveyTypeId": 1,
+        "QuestionTypeId" : 1 
+    },
+    {
+        "Id" : 8 ,
+        "SurveyId": 2,
+        "CreatedBy" : "Maryam O'Ryan" ,
+        "CreatedDateTime" : "2/2/2021 11:56:18 AM" ,
+        "Title" : "How many devs does it take to change a lightbulb?" ,
+        "SubTitle" : "This is not a trick question." ,
+        "SurveyTypeId": 2,
+        "QuestionTypeId" : 2
+    },
+    {
+        "Id" : 9 ,
+        "SurveyId": 3,
+        "CreatedBy" : "Elisabeth Winters" ,
+        "CreatedDateTime" : "2/2/2021 11:56:18 AM" ,
+        "Title" : "How many astronauts landed on the moon?" ,
+        "SubTitle" : "" ,
+        "SurveyTypeId": 1,
+        "QuestionTypeId" : 1 
+    },
+    {
+        "Id" : 10 ,
+        "SurveyId": 3,
+        "CreatedBy" : "Maryam O'Ryan" ,
+        "CreatedDateTime" : "2/2/2021 11:56:18 AM" ,
+        "Title" : "How many minutes to an hour" ,
+        "SubTitle" : "This is not a trick question." ,
+        "SurveyTypeId": 2,
+        "QuestionTypeId" : 2
+    },
+    {
+        "Id" : 11 ,
+        "SurveyId": 3,
+        "CreatedBy" : "Elisabeth Winters" ,
+        "CreatedDateTime" : "2/2/2021 11:56:18 AM" ,
+        "Title" : "Favourite food" ,
+        "SubTitle" : "" ,
+        "SurveyTypeId": 1,
+        "QuestionTypeId" : 1 
+    },
+    {
+        "Id" : 12 ,
+        "SurveyId": 3,
+        "CreatedBy" : "Maryam O'Ryan" ,
+        "CreatedDateTime" : "2/2/2021 11:56:18 AM" ,
         "Title" : "How many devs does it take to change a lightbulb?" ,
         "SubTitle" : "This is not a trick question." ,
         "SurveyTypeId": 2,

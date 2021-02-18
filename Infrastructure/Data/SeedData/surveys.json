@@ -2,5 +2,21 @@
     {
         "Id": 1,
         "Name" : "Survey 1"
+    },
+    {
+        "Id": 2,
+        "Name" : "Sports survey"
+    },
+    {
+        "Id": 3,
+        "Name" : "Education systems"
+    },
+    {
+        "Id": 4,
+        "Name" : "Survey to travel to Mars"
+    },
+    {
+        "Id": 5,
+        "Name" : "Chicken or Egg Survey"
     }
 ]
