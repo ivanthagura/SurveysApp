@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Dtos;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,41 @@ namespace Infrastructure.Data
         {
             var surveys = await _context.Surveys.ToListAsync();
             return surveys;
+        }
+
+        public async Task<bool> AddSurveyResponse(Survey survey, SurveyResponseDto surveyResponse)
+        {
+            var answers = new List<Answer>();
+
+            foreach (var question in survey.Questions)
+            {
+                var responseAnswer = surveyResponse.Answers.FirstOrDefault(a => a.QuestionId == question.Id);
+                if (responseAnswer != null)
+                {
+                    var answer = new Answer
+                    {
+                        Question = question,
+                        QuestionId = question.Id,
+                        QuestionAnswer = responseAnswer.QuestionAnswer
+                    };
+
+                    answers.Add(answer);
+                }
+            }
+
+            var response = new Response
+            {
+                Email = surveyResponse.Email,
+                Name = surveyResponse.Name,
+                Survey = survey,
+                SurveyId = survey.Id,
+                Answers = answers
+            };
+
+            _context.SurveyResponses.Add(response);
+            var saved = await _context.SaveChangesAsync();
+
+            return saved > 0;
         }
     }
 }

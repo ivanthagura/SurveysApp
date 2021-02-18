@@ -14,6 +14,8 @@ namespace Infrastructure.Data
         public DbSet<Question> Questions { get; set; }
         public DbSet<Option> Options { get; set; }
         public DbSet<SurveyType> SurveyTypes { get; set; }
+        public DbSet<Response> SurveyResponses { get; set; }
+        public DbSet<Answer> SurveyResponseAnswers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

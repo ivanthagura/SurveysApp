@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
 using Core.Dtos;
@@ -40,6 +41,37 @@ namespace Api.Controllers
 
             var surveyDto = _mapper.Map<SurveyDto>(survey);
             return Ok(surveyDto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddSurveyResponse(SurveyResponseDto surveyResponse)
+        {
+            if (surveyResponse.SurveyId == 0)
+            {
+                ModelState.AddModelError("Error", "No survey id");
+                return BadRequest(ModelState);
+            }
+
+            var survey = await _surveryRepo.GetSurvey(surveyResponse.SurveyId);
+            if (survey == null)
+            {
+                ModelState.AddModelError("Error", "Invalid survey id");
+                return BadRequest(ModelState);
+            }
+
+            if (surveyResponse.Answers.Count == 0)
+            {
+                ModelState.AddModelError("Error", "No answers in survey response");
+                return BadRequest(ModelState);
+            }
+
+            var responseSaved = await _surveryRepo.AddSurveyResponse(survey, surveyResponse);
+            if (!responseSaved)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError);
+            }
+
+            return Ok();
         }
     }
 }

@@ -33,6 +33,27 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SurveyResponses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Email = table.Column<string>(type: "TEXT", nullable: true),
+                    SurveyId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SurveyResponses", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SurveyResponses_Surveys_SurveyId",
+                        column: x => x.SurveyId,
+                        principalTable: "Surveys",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Questions",
                 columns: table => new
                 {
@@ -82,6 +103,33 @@ namespace Infrastructure.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "SurveyResponseAnswers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    QuestionAnswer = table.Column<string>(type: "TEXT", nullable: true),
+                    QuestionId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ResponseId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SurveyResponseAnswers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SurveyResponseAnswers_Questions_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "Questions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SurveyResponseAnswers_SurveyResponses_ResponseId",
+                        column: x => x.ResponseId,
+                        principalTable: "SurveyResponses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Options_QuestionId",
                 table: "Options",
@@ -96,6 +144,21 @@ namespace Infrastructure.Data.Migrations
                 name: "IX_Questions_SurveyTypeId",
                 table: "Questions",
                 column: "SurveyTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SurveyResponseAnswers_QuestionId",
+                table: "SurveyResponseAnswers",
+                column: "QuestionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SurveyResponseAnswers_ResponseId",
+                table: "SurveyResponseAnswers",
+                column: "ResponseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SurveyResponses_SurveyId",
+                table: "SurveyResponses",
+                column: "SurveyId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -104,13 +167,19 @@ namespace Infrastructure.Data.Migrations
                 name: "Options");
 
             migrationBuilder.DropTable(
+                name: "SurveyResponseAnswers");
+
+            migrationBuilder.DropTable(
                 name: "Questions");
 
             migrationBuilder.DropTable(
-                name: "Surveys");
+                name: "SurveyResponses");
 
             migrationBuilder.DropTable(
                 name: "SurveyTypes");
+
+            migrationBuilder.DropTable(
+                name: "Surveys");
         }
     }
 }
