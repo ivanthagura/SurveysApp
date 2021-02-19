@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import SurveyForm from '../surveyForm/SurveyForm';
 import agent from '../../../app/api/agent';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 export default function SurveyDetailedPage({match}) {
     const history = useHistory();

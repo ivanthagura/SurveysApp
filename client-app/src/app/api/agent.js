@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 const responseBody = (response) => response.data;
+const responseStatus = (response) => response.status;
 
 axios.interceptors.response.use(undefined, (error) => {
     if (error.message === 'Network Error' && !error.response) {
@@ -18,7 +19,7 @@ axios.interceptors.response.use(undefined, (error) => {
       config.method === 'get' &&
       data.errors.hasOwnProperty('id')
     ) {
-        toast.error('Page not found');
+        toast.ok('Page not found');
     }
     if (status === 500) {
       toast.error('Server error - check the terminal for more info!');
@@ -28,7 +29,7 @@ axios.interceptors.response.use(undefined, (error) => {
 
   const requests = {
     get: (url) => axios.get(url).then(responseBody),
-    post: (url, body) => axios.post(url, body).then(responseBody),
+    post: (url, body) => axios.post(url, body).then(responseStatus),
   };
 
   const Surveys = {
