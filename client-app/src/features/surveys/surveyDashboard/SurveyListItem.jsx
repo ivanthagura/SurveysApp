@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Item, Segment, Button } from 'semantic-ui-react';
 
 export default function SurveyListItem({survey}) {
@@ -18,7 +19,7 @@ export default function SurveyListItem({survey}) {
                 </Item.Group>
             </Segment>
             <Segment clearing>
-                <Button color='teal' floated='right' content='View' />
+                <Button as={Link} to={`/surveys/${survey.id}`} color='teal' floated='right' content='View' />
             </Segment>
         </Segment.Group>
     );

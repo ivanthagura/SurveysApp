@@ -1,15 +1,24 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
+import HomePage from '../../features/home/HomePage';
 import NavBar from '../../features/nav/NavBar';
 import SurveyDashboard from '../../features/surveys/surveyDashboard/SurveyDashboard';
+import SurveyDetailedPage from '../../features/surveys/surveyDetailed/SurveyDetailedPage';
 
 export default function App() {
   return (
     <>
-      <NavBar/>
-      <Container className='main'>
-        <SurveyDashboard />
-      </Container>
+      <Route exact path='/' component={HomePage} />
+      <Route path={'/(.+)'} render={() => (
+        <>
+          <NavBar/>
+          <Container className='main'>
+            <Route exact path='/surveys' component={SurveyDashboard} />
+            <Route path='/surveys/:id' component={SurveyDetailedPage} />
+          </Container>
+        </>
+      )} />
     </>
   );
 }
