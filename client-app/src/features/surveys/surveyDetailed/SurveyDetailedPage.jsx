@@ -1,13 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import SurveyForm from '../surveyForm/SurveyForm';
 import agent from '../../../app/api/agent';
+import { useHistory } from 'react-router-dom'
 
 export default function SurveyDetailedPage({match}) {
-    const [survey, setSurvey] =  useState({name: 'test'});
+    const history = useHistory();
+    const [survey, setSurvey] =  useState({name: 'Survey not found'});
 
     const getSurvey = async () => {
-        const surveyResponse = await agent.Surveys.details(match.params.id);
-        setSurvey(surveyResponse);
+        try {
+            const surveyResponse = await agent.Surveys.details(match.params.id);
+            setSurvey(surveyResponse);
+        }
+        catch(reponse) {
+            history.push('/notfound');
+        }
     };
 
     useEffect(() => {
