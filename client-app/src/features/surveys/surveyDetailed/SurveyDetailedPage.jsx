@@ -5,12 +5,19 @@ import { useHistory } from 'react-router-dom'
 
 export default function SurveyDetailedPage({match}) {
     const history = useHistory();
-    const [survey, setSurvey] =  useState({name: 'Survey not found'});
+    const initialSurvey = {
+        id: 0,
+        name: '',
+        questions: []
+    };
+    const [survey, setSurvey] =  useState(initialSurvey);
+    const [dataLoaded, setDataLoaded] = useState(false);
 
     const getSurvey = async () => {
         try {
             const surveyResponse = await agent.Surveys.details(match.params.id);
             setSurvey(surveyResponse);
+            setDataLoaded(true);
         }
         catch(reponse) {
             history.push('/notfound');
@@ -23,8 +30,8 @@ export default function SurveyDetailedPage({match}) {
 
     return (
         <>
-            <h1>{survey.name}</h1>
-            <SurveyForm survey={survey} />
+            <h1>Compass Surveys</h1>
+            {dataLoaded ? <SurveyForm survey={survey} /> : <h4>Loading</h4>}
         </>
     );
 }
