@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "32ea3eac-22d6-4dad-a838-ad8e4fc67d71",
+		"name": "SurveyApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Survey ById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/survey/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"survey",
+						"1"
+					]
+				},
+				"description": "https://localhost:5001/survey/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Surveys",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/survey",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"survey"
+					]
+				},
+				"description": "https://localhost:5001/survey"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Survey Response",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\" : \"Ivantha\",\r\n    \"Email\": \"ivantha88@hotmail.com\",\r\n    \"SurveyId\": 1,\r\n    \"Answers\": [\r\n        {\r\n            \"QuestionId\" : 1,\r\n            \"QuestionAnswer\" : \"51\"\r\n        },\r\n        {\r\n            \"QuestionId\" : 2,\r\n            \"QuestionAnswer\" : \"3\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/survey",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"survey"
+					]
+				},
+				"description": "https://localhost:5001/survey"
+			},
+			"response": []
+		}
+	]
+}
