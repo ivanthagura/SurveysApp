@@ -30,7 +30,7 @@ npm install (install all packages)
 npm start
 
 In production mode:
-run "npm run-script build" inside client-app to publish the front end project inside the wwwroot of API project
+run "npm run build" inside client-app to publish the front end project inside the wwwroot of API project
 running API project now will run the published client app in the browser
 
 Test project consists of unit tests on the DBContext by creating a mock database with dummy data.
